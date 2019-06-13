@@ -114,6 +114,9 @@
                         $rank = key($array) + 1;
                     }next($array);
                     }
+                  
+                  	$per = round((($present/$daysMonth) * 100), 2 ) ;
+                  
 				}
 			}
 
@@ -309,7 +312,14 @@
 					<div style="width:83%; margin:auto;font-family: 'Raleway', sans-serif;font-size:2vw;">
 
 							<div style= "width:15vw;float:left; margin-left:1vw;">
-								<span style="position:relative;bottom:11.5vw;">75%</span>
+								<span style="position:relative;bottom:11.5vw;">
+                              	
+                                  <?
+                                  		echo $per."%";
+                                  	
+								  ?>
+                              
+                              	</span>
 							</div>
 	
 							
