@@ -36,10 +36,7 @@
 					$query = "UPDATE `teacher` SET `date` = now()";
 					mysqli_query($link,$query);
 
-					if(array_key_exists("submit",$_POST)){
-
-						
-
+                  	
 						$query="Select `upper` FROM `teacher` LIMIT 1";
 						$result = mysqli_query($link,$query);
 						$row = mysqli_fetch_array($result);
@@ -49,6 +46,8 @@
 						$result = mysqli_query($link,$query);
 						$row = mysqli_fetch_array($result);
 						$lowerTime = $row['0'];
+                  
+					if(array_key_exists("submit",$_POST)){
 
 						$query="SELECT `time` FROM `teacher` WHERE `id` = '".mysqli_real_escape_string($link,$id)."'";
 
@@ -71,14 +70,10 @@
 
 							$month=  $row['0'];
 
-							$query = "SELECT MAX(presence) from teacher".$id ;
+							$query = "SELECT * FROM teacher".$id." WHERE `presence` = '".mysqli_real_escape_string($link,$date)."'";
 							$result= mysqli_query($link,$query);
-							$row=mysqli_fetch_array($result);
-
-							$presence = $row['0'];
-
-
-							if($presence == $date){
+							
+							if(mysqli_num_rows($result) > '0' ){
 
 								$error =" Your presence has already been registered.";
 							}
@@ -337,8 +332,9 @@
 									echo $id."<br>" ;
 								?>
 									<span id="at"></span><br>
-									10:00:00
-									
+                            	<?
+									echo $upperTime ;
+								?>	
 							</div>
 						</div> 
 					 
