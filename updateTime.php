@@ -279,7 +279,7 @@ left:4%;
 
 <div class="container-fluid" style="width:100%;text-align:center;">
 	<div style="margin:auto;width:40%;font-family: 'Raleway', sans-serif;">
-		<form method="POST">
+		<form id="update" method="POST">
 
 			<div class="form-group" style="text-align:left;">
 				<label for="currentPass"><strong>Initial Time</strong></label>
@@ -311,7 +311,7 @@ left:4%;
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 	 <script type="text/javascript">
 
-		$("form").submit(function(e) {
+		$("#update").submit(function(e) {
 
 		var error = "" ;
 
