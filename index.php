@@ -21,7 +21,7 @@
 		
 		if ($error != "") {
             
-            $error = "<div><p><strong>There were error(s) in your form:</strong></p>".$error."</div>";
+            $error = "<div class='alert alert-dark' id='error'><p><strong>There were error(s) in your form:</strong></p>".$error."</div>";
             
         }
 		
@@ -46,7 +46,7 @@
 				
 				if(mysqli_num_rows($result) == 0) {
 
-					$error = "This user doesnt exist";
+					$error = "<div class='alert alert-dark' role='alert' id='error'><strong>This user doesnt exist</strong></div>";
 				}
 				
 				else{ 
@@ -70,7 +70,7 @@
 					
 					else{
 						
-						$error = "The Password is incorrect";
+						$error = "<div class='alert alert-dark' role='alert' id='error'><strong>The password is incorrect</strong></div>";
 					}
 				}
 			
@@ -84,7 +84,7 @@
 				
 				if(mysqli_num_rows($result) == 0) {
 
-					$error = "This user doesnt exist";
+					$error = "<div class='alert alert-dark' role='alert' id='error'><strong>This user doesnt exist</strong></div>";
 				}
 				
 				else{ 
@@ -108,7 +108,7 @@
 					
 					else{
 						
-						$error = "The Password is incorrect";
+						$error = "<div class='alert alert-dark' role='alert' id='error'><strong>The password is incorrect</strong></div>";
 					}
 				}
 			
@@ -127,6 +127,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="icon" href="logo.png" type="image/ico" sizes="50x50">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	 <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
 	 <link href="https://fonts.googleapis.com/css?family=Raleway:500&display=swap" rel="stylesheet">
@@ -140,7 +141,7 @@
 			width:90%;
 			margin-top:5vh;
 			background : linear-gradient(to right bottom,#ffffff,#d4d9de);
-			height:50vh;
+			height:auto;
 			box-shadow: 0px 36px 22px -24px #000000;
 			margin-top:20vh;
 		}
@@ -168,7 +169,7 @@
 		}
 
 	</style>
-    <title>Hello, world!</title>
+    <title>E attendance</title>
   </head>
   <body onload=display_ct();>
 	  <div class="container-fluid"> 
@@ -183,7 +184,16 @@
 					<div class="container" style="margin-top:2vh;">
 						<span class="title content"> E Attendance </span>
 					</div>
-
+                  
+					<div class="container" style="margin-top:1vh;">
+                    	<div class="content" id="error">
+                      		<?
+                          		echo $error;
+                          	?>
+                          
+                      	</div>
+                  	</div>
+                  
 					<div class="container" style="margin-top:1vh;">
 						<form class="content" method="post"> 
 
